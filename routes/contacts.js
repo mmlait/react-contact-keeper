@@ -93,8 +93,6 @@ router.delete('/:id', auth, async (req,res) => {
     if(!contact) return res.status(404).json({ msg: 'Contact not found' });
 
     if(contact.user.toString() !== req.user.id) {
-      console.log(req.user.id)
-      console.log(contact.user.toString)
       return res.status(401).json({ msg: 'Not authorized' });
     }
 
